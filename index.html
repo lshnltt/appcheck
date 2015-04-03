@@ -1,0 +1,1065 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,target-densitydpi=device-dpi,initial-scale=1.0,maximum-scale=3.0, minimum-scale=1.0,  user-scalable=yes">
+    <title>待查验列表</title>
+    <link rel="stylesheet" href="res/css/base.css">
+    <link rel="stylesheet" href="res/css/common.css">
+    <link rel="stylesheet" href="res/css/checklist.css">
+</head>
+<body>
+    <!--待查验列表模块--页面索引0-->
+    <div id="checkListPage" class="checkList page page0">
+        <div id="checkList_head" class="head bcea bImage_1 tc">
+            <div id="checkList_userName" class="userName fcwhite f28 fl ml15"></div>
+            <div id="refreshBtnCon" class="fr mr15">
+                <input type="button" id="refreshBtn" class="refreshBtn btnCommon inputCommon">
+            </div>
+            <div class="titleCon shadow_a6 fcwhite f42">查验列表</div>
+            <div class="cb"></div>
+        </div>
+        <div id="searchCon" class="bce5 shadow_72 bImage_2 tc">
+            <!--<div class="smallSearchIcon"></div>-->
+            <div class="checkStateChoiceCon">
+                <div class="downIcon"></div>
+                <div id="checkStateChoice">待办</div>
+                <div class="cb"></div>
+            </div>
+            <div class="downCon none">
+                <div class="selectChoice" id="waitForNone">待办</div>
+                <div class="downLine"></div>
+                <div class="selectChoice" id="waitForCheck">待查验</div>
+                <div class="downLine"></div>
+                <div class="selectChoice" id="waitForProcess">待处理</div>
+                <div class="downLine"></div>
+                <div class="selectChoice" id="haveChecked">已查验</div>
+            </div>
+            <input type="text" id="searchField" class="shadow_white bcwhite inputCommon field_search f30" placeholder="">
+            <div class="cb"></div>
+            <span class="clearSearchBtn"></span>
+        </div>
+        <div class="content" id="listConScroll" style="margin-top:190px;">
+            <div id="listCon">
+                <div id="listItemCon" class="itemCon">
+                </div>
+                <div id="haveCheckedItemCon" class="itemCon"></div>
+            </div>
+            <div class="daysCon none">
+                <div class="prevDay dayBtnCommon fl">前一天</div>
+                <div class="nextDay dayBtnCommon fr">后一天</div>
+                <div class="currentDay">2015-03-05</div>
+                <div class="cb"></div>
+            </div>
+        </div>
+    </div>
+    <!--人工查验作业--页面索引1-->
+    <div id="checkworkPage" class="checkwork page page1 none">
+        <div id="checkwork_head" class="head bcea shadow_72 bImage_1 fc37 f34 tc">
+            <div class="exitBtn ml15 fl"><span class="exitLabel">退出</span></div>
+            <div id="checkwork_userName" class="userName fcwhite f28 fl none"></div>
+            <div class="photoBtnCon fr mr15">
+                <input type="button" class="photoBtn btnCommon inputCommon">
+            </div>
+            <div class="titleCon">
+                <div class="titleTop fcwhite tShadow_black2 f34  tc">人工查验作业<span class="top_UserName ml18"></span></div>
+                <div class="titleBottom fcwhite tShadow_black2 f26 tc"></div>
+            </div>
+            <div class="cb"></div>
+        </div>
+        <div id="tabCon" class="bce5 bImage_2">
+            <span class="tab tc"><span id="tab1" class="tabCommon">信息</span></span>
+            <span class="tab tc"><span id="tab2" class="tabCommon">集装箱/车</span></span>
+            <span class="tab tc"><span id="tab3" class="tabCommon">货物</span></span>
+            <span class="tab tc"><span id="tab4" class="tabCommon">记录</span></span>
+        </div>
+        <div class="content" style="margin-top:196px;margin-bottom:100px;">
+            <!--信息模块-->
+            <div class="massagesTab tab_item none">
+                <!--查验记录单号模块-->
+                <div id="checkRecordIdCon" class="moduleCon">
+                    <div class="messageTitleCon">
+                        <div class="starFlag fl"></div>
+                        <div class="leftTitleCommon fl">查验记录单号:<span class="checkRecordId"></span></div>
+                        <div class="cb"></div>
+                    </div>
+                    <div class="line2"></div>
+                </div>
+                <!--查验指令模块-->
+                <div id="checkModuleCon" class="moduleCon none">
+                    <div class="messageTitleCon">
+                        <div class="starFlag fl"></div>
+                        <div class="leftTitleCommon fl">查验指令</div>
+                        <div class="cb"></div>
+                    </div>
+                    <div class="line2"></div>
+                    <div class="messageItemCon">
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">查验要求</div>
+                            <div id="checkModule_checkRequire" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">查验方式</div>
+                            <div id="checkModule_checkMode" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">联系人</div>
+                            <div id="checkModule_checkLinkMan" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">联系电话</div>
+                            <div id="checkModule_checkPhone" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">安全提示</div>
+                            <div id="checkModule_safeWarn" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">其他特殊要求</div>
+                            <div id="checkModule_otherSpecialRequire" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">备注</div>
+                            <div id="checkModule_checkNotes" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                    </div>
+                </div>
+                <!--布控指令信息模块-->
+                <div id="deployModuleCon" class="moduleCon none">
+                    <div class="messageTitleCon">
+                        <div class="starFlag fl"></div>
+                        <div class="leftTitleCommon fl">布控指令信息</div>
+                        <div class="downSelectIcon fr"></div>
+                        <div class="cb"></div>
+                    </div>
+                    <div class="line2"></div>
+                    <div class="messageItemCon none">
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">布控指令号</div>
+                            <div id="deployModule_deployNum" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">布控来源</div>
+                            <div id="deplyModule_deploySource" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">布控关别</div>
+                            <div id="deplyModule_deployCustom" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">布控部门</div>
+                            <div id="deployModule_deployDept" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">布控人</div>
+                            <div id="deployModule_deployPerson" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">布控日期</div>
+                            <div id="deployModule_deployDate" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">布控理由</div>
+                            <div id="deployModule_deployReason" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">布控要求</div>
+                            <div id="deployModule_deployRequire" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">处理方式</div>
+                            <div id="deployModule_deployProcessMode" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">备注</div>
+                            <div id="deployModule_deployRemark" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div><div class="line2">
+                        </div>
+                    </div>
+                </div>
+
+                <!--机检查验记录模块-->
+                <div id="mCheckModuleCon" class="moduleCon none">
+                    <div class="messageTitleCon">
+                        <div class="starFlag fl"></div>
+                        <div class="leftTitleCommon fl">机检查验记录</div>
+                        <div class="cb"></div>
+                    </div>
+                    <div class="line2"></div>
+                    <div class="messageItemCon">
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">机检查验记录</div>
+                            <div id="mCheckModule_mCheckRecord" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">查验结果</div>
+                            <div id="mCheckModule_mCheckResult" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">处理意见</div>
+                            <div id="mCheckModule_mCheckAdvice" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">查验人员</div>
+                            <div id="mCheckModule_mCheckPerson" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                        <div class="messageItem">
+                            <div class="leftTitle fc8c f26 tr">查验时间</div>
+                            <div id="mCheckModule_mCheckTime" class="rightDetail fc47 f32 tl"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line2"></div>
+                    </div>
+                </div>
+                <!--提运单信息模块-->
+                <div id="wayBillModuleCon" class="moduleCon">
+                    <div class="messageTitleCon">
+                        <div class="starFlag fl"></div>
+                        <div class="leftTitleCommon fl">提（运）单信息</div>
+                        <div class="downSelectIcon fr"></div>
+                        <div class="cb"></div>
+                    </div>
+                    <div class="line2"></div>
+                    <div class="messageItemCon none">
+                    </div>
+                </div>
+                <!--其他信息模块-->
+                <div class="moduleCon otherModule">
+                    <!--<div class="messageTitleCon">
+                        <div class="starFlag fl"></div>
+                        <div class="leftTitleCommon fl">其他信息</div>
+                        <div class="cb"></div>
+                    </div>
+                    <div class="line2"></div>-->
+                    <div class="otherMessageCon messageItemCon">
+                        <div class="entryBillBtn">
+                            <div class="entryBillIcon otherMesgIcon fl"></div>
+                            <div class="otherMesgBtnTxt fl">报关单信息</div>
+                            <div class="circleFrontIcon fr"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="entryBillBtn">
+                            <div class="unstuffingRecIcon otherMesgIcon fl"></div>
+                            <div class="otherMesgBtnTxt fl">掏箱作业单</div>
+                            <div class="circleFrontIcon fr"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="entryBillBtn">
+                            <div class="attachedDocIcon otherMesgIcon fl"></div>
+                            <div class="otherMesgBtnTxt fl">随附单证信息</div>
+                            <div class="circleFrontIcon fr"></div>
+                            <div class="cb"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--集装箱模块-->
+            <div class="containersTab tab_item none">
+            </div>
+            <!--货物模块-->
+            <div class="goodsTab tab_item none">
+            </div>
+            <!--记录模块-->
+            <div class="recordsTab tab_item none">
+                <div class="innerCon">
+                    <!--现场照片-->
+                    <div class="record_con1 itemCommon">
+                        <div class="leftTitleCon fl">
+                            <div class="starFlag fl"></div>
+                            <div class="leftTitleCommon fl">现场照片</div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="rightOperCon conRightCon fr">
+                            <div class="rightInputCon leftTxt con_blueTxt">
+                                <span id="photoNum" class="photoNum">0</span>张
+                            </div>
+                            <div class="rightFrontCommon blueFront rightFrontPosition fr"></div>
+                        </div>
+                        <div class="cb"></div>
+                    </div>
+                    <!--查验方式、查验地点等-->
+                    <div class="record_con2 itemCommon">
+                        <div class="rowDataTime">
+                            <div class="contTxtComm fl">查验时间</div>
+                            <div class="rightOperCon conRightCon fr none">
+                                <div id="dateTime" class="rightInputCon leftTxt conFieldTxt con_blueTxt"></div>
+                                <div class="rightFrontCommon blueFront rightFrontPosition fr"></div>
+                            </div>
+                            <div class="checkStartTime fr"></div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line3 record_lineCommon1"></div>
+                        <div class="rowCommon1 checkPlaceCon">
+                            <div class="contTxtComm fl">查验地点</div>
+                            <div class="rightOperCon conRightCon fr">
+                                <!--<div class="rightInputCon record_blueTxt">
+                                    安联国际
+                                </div>
+                                <div class="rightFrontCommon blueFront rightFrontPosition fr"></div>-->
+                            </div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line3 record_lineCommon1"></div>
+                        <div class="rowCommon1">
+                            <div class="contTxtComm fl">货物包装</div>
+                            <div class="rightOperCon conRightCon fr">
+                                <!--<div class="rightInputCon record_blueTxt">
+                                </div>
+                                <div class="rightFrontCommon blueFront rightFrontPosition fr"></div>-->
+                            </div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line3 record_lineCommon1"></div>
+                        <div class="rowCommon1">
+                            <div class="contTxtComm fl">查验现场提交单据清单</div>
+                            <div class="rightOperCon conRightCon fr">
+                                <div class="rightInputCon leftTxt con_grayTxt">
+                                    点击添加
+                                </div>
+                                <div class="rightFrontCommon rightIcon grayFront rightFrontPosition fr"></div>
+                            </div>
+                            <div class="cb"></div>
+                        </div>
+                    </div>
+                    <!--查验要求处理结果-->
+                    <div class="record_con3 itemCommon">
+                        <div class="leftTitleCon ml20 mb25">
+                            <div class="starFlag fl"></div>
+                            <div class="leftTitleCommon fl">总署查验要求</div>
+                            <div class="cb"></div>
+                        </div>
+                        <!--<div class="line3 record_lineCommon1 mt20"></div>
+                        <div class="rowCommon1">
+                            <div class="contTxtComm fl">核对品名</div>
+                            <div class="rightOperCon fr">
+                                <div class="rightInputCon record_blueTxt">
+                                    未见异常
+                                </div>
+                                <div class="rightFrontCommon blueFront rightFrontPosition fr"></div>
+                            </div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line3 record_lineCommon1"></div>
+                        <div class="rowCommon1">
+                            <div class="contTxtComm fl">核对规格</div>
+                            <div class="rightOperCon fr">
+                                <div class="rightInputCon record_blueTxt">
+                                    单货不符
+                                </div>
+                                <div class="rightFrontCommon blueFront rightFrontPosition fr"></div>
+                            </div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line3 record_lineCommon1"></div>
+                        <div class="rowCommon1">
+                            <div class="contTxtComm fl">是否侵权</div>
+                            <div class="rightOperCon fr">
+                                <div class="rightInputCon record_blueTxt">
+                                    无法确定
+                                </div>
+                                <div class="rightFrontCommon blueFront rightFrontPosition fr"></div>
+                            </div>
+                            <div class="cb"></div>
+                        </div>-->
+                    </div>
+                    <!--查验过程记录-->
+                    <div class="record_con4 itemCommon">
+                        <div class="record_cont4TopCon">
+                            <div class="leftTitleCon ml20 fl">
+                                <div class="starFlag mt10 fl"></div>
+                                <div class="leftTitleCommon fl">查验过程记录</div>
+                                <div class="cb"></div>
+                            </div>
+                            <div class="righgBtnCon fr">
+                                <input id="createOrder" type="button" class="generateOneKey inputCommon btnCommon" value="" />
+                            </div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="generateCon">
+                            <textarea id="orderText" maxlength="1200" class="generateTxt fc47 f28" rows="7"></textarea>
+                        </div>
+
+                    </div>
+                    <!--查验结论-->
+                    <div class="record_con5 itemCommon">
+                        <div class="record_cont4TopCon">
+                            <div class="leftTitleCon ml20 fl">
+                                <div class="starFlag mt10 fl"></div>
+                                <div class="leftTitleCommon fl">查验结论</div>
+                                <div class="cb"></div>
+                            </div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line3 ml40 mr40 mt25"></div>
+                        <div class="rowCommon1 lh43">
+                            <div class="contTxtComm fl">查验结果</div>
+                            <div class="statusCon conRightCon fr tr">
+                                <!--<div id="examResult" class="statusTxtGreen"></div>
+                                <div class="statusBtn greenIcon radioBtnCommon fr"></div>-->
+                            </div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line3 record_lineCommon1"></div>
+                        <div class="rowCommon1">
+                            <div class="contTxtComm fl">处理意见</div>
+                            <div class="rightOperCon conRightCon fr">
+                                <div class="rightInputCon leftTxt">
+                                </div>
+                                <div class="rightFrontCommon rightIcon blueFront rightFrontPosition fr"></div>
+                            </div>
+                            <div class="cb"></div>
+                        </div>
+                        <div class="line3 record_lineCommon1"></div>
+                        <div class="rowCommon1">
+                            <div class="contTxtComm fl">其他说明</div>
+                            <div class="rightOperCon conRightCon fr">
+                                <div class="rightInputCon leftTxt con_grayTxt">
+                                    点击添加
+                                </div>
+                                <div class="rightFrontCommon grayFront rightIcon rightFrontPosition fr"></div>
+                            </div>
+                            <div class="cb"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="flowlogCon none">
+                <div class="flowlogInnerCon">
+                    <div class="flowFlag"></div>
+                    <div class="flowTxt">流程日志</div>
+                    <div class="cb"></div>
+                </div>
+            </div>
+        </div>
+        <div id="foot1" class="footCommon">
+            <div class="bottomBtnCon none">
+                <div class="saveBtn bottomBtn fl" id="btnSave"><img src="res/images/savePic.png" /></div>
+                <div class="submitBtn bottomBtn fr" id="btnSubmit"><img src="res/images/submitPic.png" /></div>
+            </div>
+            <div class="startCheckBtn">
+                <div class="checkBtn bottomBtn" id="btnCheck"></div>
+                <div class="bottomBtn none" id="btnChecking" style="font-size: 2em;">正在请求数据......</div>
+            </div>
+            <div class="bottomWarnInfoCon none">
+                <div class="bottomWarnInfo"></div>
+            </div>
+        </div>
+    </div>
+    <!--报关单信息模块--页面索引2-->
+    <div id="entryMesgPage" class="entryMessage page page2 none">
+        <div id="entryMessage_head" class="head bcea bImage_1 tc">
+            <div id="entryMessage_userName" class="userName fcwhite f28 fl ml15"></div>
+            <div class="titleCon shadow_72 fcwhite tShadow_black2 f42 mr100">报关单信息</div>
+            <div class="cb"></div>
+        </div>
+        <!--style="margin-top:104px;"-->
+        <div class="content">
+            <div class="entryContainerCommon"></div>
+        </div>
+    </div>
+    <!--掏箱作业单--页面索引3-->
+    <div id="unsfuffingPage" class="unstuffing page page3 none">
+        <div id="unstuffing_head" class="head bcea bImage_1 tc">
+            <div id="unstuffing_userName" class="userName fcwhite f28 fl ml15"></div>
+            <div class="titleCon shadow_72 fcwhite tShadow_black2 f42 mr100">
+                掏箱作业单
+            </div>
+            <div class="cb"></div>
+        </div>
+        <!--style="margin-top:104px;"-->
+        <div class="content">
+            <div class="otherMesgLeftCommon unstuffingLeftCommon" id="unstuffingLeft">
+            </div>
+            <!--右边的内容-->
+            <div class="otherMesgRightCommon unstuffingRightCommon" id="unstuffingRight">
+
+            </div>
+        </div>
+        <!--左边的标签-->
+
+    </div>
+    <!--随附单证--页面索引4-->
+    <div id="attachedDocPage" class="attachedDoc page page4 none">
+        <div id="attachedDoc_head" class="head bcea bImage_1 tc">
+            <div id="attachedDoc_userName" class="userName fcwhite f28 fl ml15"></div>
+            <div class="titleCon shadow_72 fcwhite tShadow_black2 f42 mr100">
+                随附单证
+            </div>
+            <div class="cb"></div>
+        </div>
+        <!--style="margin-top:104px;"-->
+        <div class="content">
+            <div class="attachedDoc_innerCon">
+                <div class="attachedBtn">
+                    <div class="photoCommon jpeg"></div>
+                    <div class="attachedFileName">随附单证附件一</div>
+                    <div class="cb"></div>
+                </div>
+                <div class="attachedBtn">
+                    <div class="photoCommon doc"></div>
+                    <div class="attachedFileName">随附单证附件二</div>
+                    <div class="cb"></div>
+                </div>
+                <div class="attachedBtn">
+                    <div class="photoCommon tiff"></div>
+                    <div class="attachedFileName">随附单证附件三</div>
+                    <div class="cb"></div>
+                </div>
+                <div class="attachedBtn">
+                    <div class="photoCommon pdf"></div>
+                    <div class="attachedFileName">随附单证附件四</div>
+                    <div class="cb"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--企业注册简况表-->
+    <div id="bussinessRegisteBriefingTablePage" class="bussinessRegisteBriefingTablePage page page18 none">
+        <div id="bussinessRegisteBriefingTablePage_head" class="head bcea bImage_1 tc">
+            <div id="bussinessRegisteBriefing_userName" class="userName fcwhite f28 fl ml15"></div>
+            <div class="titleCon shadow_72 fcwhite tShadow_black2 f42 mr100">企业注册简况表</div>
+            <div class="cb"></div>
+        </div>
+        <!--style="margin-top:104px;"-->
+        <div class="content">
+            <div class="entryContainerCommon"></div>
+        </div>
+    </div>
+    <!--现场照片--页面索引5-->
+    <div id="scenePhotoPage" class="scenePhoto page page5 none">
+        <div id="scenePhoto_head" class="head bcea shadow_72 bImage_1 fcwhite f34 tc">
+            <div id="scenePhoto_userName" class="userName fcwhite f28 fl ml15"></div>
+            <div class="photoBtnCon fr mr15">
+                <input type="button" class="photoBtn btnCommon inputCommon">
+            </div>
+            <div class="titleCon">
+                <div id="" class="titleTop f34 tShadow_black1 fcwhite tc">现场照片</div>
+                <div id="" class="titleBottom f26 tc">共<span class="totalPhoto">10</span>张</div>
+            </div>
+            <div class="cb"></div>
+        </div>
+        <div class="content">
+            <ul class="photo_innerCon" id="photoViewCon">
+                <li>
+                    <a>
+                        <img src="res/images/photo.png" class="photo">
+                        <div class="uploadFlag saveFlag">已保存</div>
+                        <div class=""></div>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <img src="res/images/photo.png" class="photo">
+                        <div class="uploadFlag uploadedFlag">已上传</div>
+                        <div class="phone_selectView notSelectBtn selectBtn"></div>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <img src="res/images/photo.png" class="photo">
+                        <div class=""></div>
+                        <div class="phone_selectView notSelectBtn"></div>
+                        <div class="uploadProcess Processing">
+                            <img class="processImg" src="res/images/uploadProcess.png" alt="" /><br />
+                            <span class="processld">上传中...</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <img src="res/images/photo.png" class="photo">
+                        <div class=""></div>
+                        <div class="phone_selectView notSelectBtn"></div>
+                        <div class="uploadProcess ProcessFaild">
+                            <span class="processld">上传失败</span><br />
+                            <span class="retryUploadBut tShadow_black2 ">重试</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <img src="res/images/photo.png" class="photo">
+                        <div class=""></div>
+                        <div class="phone_selectView notSelectBtn"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="foot2" class="footCommon">
+            <div class="editCon">
+                <div id="photoEdit" class="leftBtn photoBtnCommon">编辑</div>
+                <div id="photoSave" class="rightBtn photoBtnCommon">保存</div>
+                <div class="cb"></div>
+            </div>
+            <div class="selectCon none">
+                <div id="photoSelectAll" class="leftBtn photoBtnCommon">全选</div>
+                <div id="photoDone" class="rightBtn photoBtnCommon">取消</div>
+                <div id="photoDelete" class="centerBtn zero photoBtnCommon">删除(<span class="selectNum">0</span>)</div>
+                <div class="cb"></div>
+            </div>
+        </div>
+    </div>
+    <!--多行输入对话框,如添加备注--页面索引6--对话框索引0-->
+    <div id="multiInputDialog" class="dialog dialog0 page page6 none">
+        <div class="dialogInnerCon">
+            <div class="closeBtnCon">
+                <div class="closeBtn"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogTitleCon">
+                <div class="dialogTitle"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogCon">
+                <div class="manyRowCon">
+                    <textarea onkeyup="util.limitMaxLength(this.value, maxLength, $(this))" class="manyRow" rows="6"></textarea>
+                </div>
+            </div>
+            <div class="dialogBtnCon">
+                <input class="dialogGrayBtn dialogBtnCommon inputCommon btnCommon" type="button" value="取消" />
+                <input class="dialogBlueBtn dialogBtnCommon inputCommon btnCommon" type="button" value="完成" />
+                <div class="cb"></div>
+            </div>
+        </div>
+    </div>
+    <!--多项选择对话框，如开拆情况--页面索引7--对话框索引1-->
+    <div id="multiChoiceDialog" class="dialog dialog1 page page7 none" style="z-index:102;">
+        <div class="dialogInnerCon">
+            <div class="closeBtnCon">
+                <div class="closeBtn"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogTitleCon">
+                <div class="dialogTitle"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogCon">
+                <div class="mutipleChoiceCon">
+                    <div class="mutipleChoice">
+                    </div>
+                </div>
+            </div>
+            <div class="dialogBtnCon">
+                <input class="dialogGrayBtn dialogBtnCommon inputCommon btnCommon" type="button" value="取消" />
+                <input class="dialogBlueBtn dialogBtnCommon inputCommon btnCommon" type="button" value="完成" />
+                <div class="cb"></div>
+            </div>
+        </div>
+    </div>
+    <!--单项选择对话框,如封志号检查结果--页面索引8--对话框索引2-->
+    <div id="singleChoiceDialog" class="dialog dialog2 page page8 none">
+        <div class="dialogInnerCon">
+            <div class="closeBtnCon">
+                <div class="closeBtn"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogTitleCon">
+                <div class="dialogTitle"></div>
+                <div class="dialogSearchCon none">
+                    <input class="dialogInput" />
+                </div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogCon">
+                <div class="unitermingCon">
+                    <div class="uniterming">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--单行输入对话框--页面索引9--对话框索引3-->
+    <div id="singleInputDialog" class="dialog dialog3 page page9 none">
+        <div class="dialogInnerCon">
+            <div class="closeBtnCon">
+                <div class="closeBtn"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogTitleCon">
+                <div class="dialogTitle"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogCon">
+                <div class="singleLineCon">
+                    <input class="singleLineField inputCommon" type="text" />
+                </div>
+            </div>
+            <div class="dialogBtnCon">
+                <input class="dialogGrayBtn dialogBtnCommon inputCommon btnCommon" type="button" value="取消" />
+                <input class="dialogBlueBtn dialogBtnCommon inputCommon btnCommon" type="button" value="完成" />
+                <div class="cb"></div>
+            </div>
+        </div>
+    </div>
+    <!--随附单据清单对话框--页面索引10--对话框索引4-->
+    <div id="attachedListDialog" class="dialog dialog4 page page10 none">
+        <div class="dialogInnerCon">
+            <div class="closeBtnCon">
+                <div class="closeBtn"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogTitleCon">
+                <div class="dialogTitle"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogCon">
+                <div class="accomDocCon">
+
+                </div>
+            </div>
+            <div class="dialogBtnCon">
+                <input class="dialogGrayBtn dialogBtnCommon inputCommon btnCommon" type="button" value="取消" />
+                <input class="dialogBlueBtn dialogBtnCommon inputCommon btnCommon" type="button" value="完成" />
+                <div class="cb"></div>
+            </div>
+        </div>
+    </div>
+    <!--图片上传图片进度对话框--页面索引11--对话框索引5-->
+    <div id="uploadProcessDialog" class="dialog dialog5 page page11 none">
+        <div class="dialogInnerCon">
+            <div class="closeBtnCon">
+                <div class="closeBtn"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogTitleCon">
+                <div class="dialogTitle">进度提示</div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogCon uploadingDiv">
+
+            </div>
+            <div class="dialogBtnCon">
+                <div><input class="dialogCenterBtn dialogBtnCommon inputCommon btnCommon " type="button" value="确认" /></div>
+                <div>
+                    <input class="dialogBlueBtn dialogBtnCommon inputCommon btnCommon " type="button" value="重试" />
+                    <input class="dialogGrayBtn dialogBtnCommon inputCommon btnCommon " type="button" value="取消" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--流程日志对话框--页面索引12--对话框索引6-->
+    <div id="processLogDialog" class="dialog dialog6 page page12 none">
+        <div class="dialogInnerCon">
+            <div class="closeBtnCon">
+                <div class="closeBtn"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogTitleCon">
+                <div class="dialogTitle" style="color: #e2742b;"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogCon">
+                <div class="workFlowCon"></div>
+            </div>
+            <div class="dialogBtnCon">
+                <input class="dialogCenterBtn dialogBtnCommon inputCommon btnCommon " type="button" value="确认" />
+            </div>
+        </div>
+    </div>
+    <!--用户提交数据之后的提示框--页面索引13--对话框索引7-->
+    <div id="submitWarnDialog" class="dialog dialog7 page page13 none">
+        <div class="dialogInnerCon">
+            <div class="closeBtnCon">
+                <div class="closeBtn"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogTitleCon">
+                <div class="dialogTitle"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogCon">
+                <div class="submitWarnCon"></div>
+            </div>
+            <div class="dialogBtnCon">
+                <input class="dialogBlueBtn dialogBtnCommon inputCommon btnCommon " type="button" value="继续提交" />
+                <input class="dialogGrayBtn dialogBtnCommon inputCommon btnCommon " type="button" value="返回修改" />
+            </div>
+        </div>
+    </div>
+    <!--人员选择对话框--页面索引14--对话框索引8-->
+    <div id="selectMemberDialog" class="dialog dialog8 page page14 none">
+        <div class="dialogInnerCon">
+            <div class="closeBtnCon">
+                <div class="closeBtn"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogTitleCon">
+                <div class="dialogTitle"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogCon">
+                <div class="mutipleChoiceCon">
+                    <div class="mutipleChoice">
+                    </div>
+                </div>
+            </div>
+            <div class="dialogBtnCon">
+                <input class="dialogGrayBtn dialogBtnCommon inputCommon btnCommon" type="button" value="取消" />
+                <input class="dialogBlueBtn dialogBtnCommon inputCommon btnCommon" type="button" value="完成" />
+                <div class="cb"></div>
+            </div>
+        </div>
+    </div>
+    <!--一键生成查验过程记录对话框-->
+    <div id="generateDialog" class="dialog dialog9 page page15 none">
+        <div class="dialogInnerCon">
+            <div class="closeBtnCon">
+                <div class="closeBtn"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogTitleCon">
+                <div class="dialogTitle">提示</div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogCon">
+                <div class="generateCon">
+                    <div class="generateInnerCon">
+                        是否替换原有的查验过程记录？
+                    </div>
+                </div>
+            </div>
+            <div class="dialogBtnCon">
+                <input class="dialogGrayBtn dialogBtnCommon inputCommon btnCommon" type="button" value="取消" />
+                <input class="dialogRedBtn dialogBtnCommon inputCommon btnCommon" type="button" value="替换" />
+                <div class="cb"></div>
+            </div>
+        </div>
+    </div>
+    <!--照片列表查看大图-->
+    <div class="fullBgBigPic none  page page16" id="sceneBigPhotoID">
+        <div class="fullCon">
+            <img src="res/images/closeBtn.png" />
+        </div>
+    </div>
+    <!--系统选定开拆方式九宫格对话框-->
+    <div id="downBoxDialog" class="dialog dialog10 page page17 none">
+        <div class="dialogInnerCon">
+            <div class="closeBtnCon">
+                <div class="closeBtn"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogTitleCon">
+                <div class="dialogTitle">系统选定开拆方式</div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogCon">
+                <div class="downBoxCon">
+                    <div class="jzx_box">
+                        <ul>
+                            <li class="current">A</li>
+                            <li>B</li>
+                            <li>C</li>
+                            <li>D</li>
+                            <li>E</li>
+                            <li>F</li>
+                            <li>G</li>
+                            <li>H</li>
+                            <li>I</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--用户退出到待查验列表页面的提示框--页面索引18--对话框索引7-->
+    <div id="exitToListDialog" class="dialog dialog11 page page18 none">
+        <div class="dialogInnerCon">
+            <div class="closeBtnCon">
+                <div class="closeBtn"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogTitleCon">
+                <div class="dialogTitle"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogCon">
+                <div class="submitWarnCon"></div>
+            </div>
+            <div class="dialogBtnCon">
+                <input class="dialogBlueBtn dialogBtnCommon inputCommon btnCommon " type="button" value="是" />
+                <input class="dialogGrayBtn dialogBtnCommon inputCommon btnCommon " type="button" value="否" />
+            </div>
+        </div>
+    </div>
+    <!--其他包装对话框--页面索引19--对话框索引8-->
+    <div id="otherWarpInputDialog" class="dialog dialog8 page page19 none" style="z-index:1002">
+        <div class="dialogInnerCon">
+            <div class="closeBtnCon">
+                <div class="closeBtn"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogTitleCon">
+                <div class="dialogTitle"></div>
+                <div class="cb"></div>
+            </div>
+            <div class="dialogCon">
+                <div class="singleLineCon">
+                    <input class="singleLineField inputCommon" type="text" />
+                </div>
+            </div>
+            <div class="dialogBtnCon">
+                <input class="dialogGrayBtn dialogBtnCommon inputCommon btnCommon" type="button" value="取消" />
+                <input class="dialogBlueBtn dialogBtnCommon inputCommon btnCommon" type="button" value="完成" />
+                <div class="cb"></div>
+            </div>
+        </div>
+    </div>
+    <div class="maskBg"></div>
+    <!--数据加载中-->
+    <div id="fullBg" class="bgCommon none">
+        <div id="circleG">
+            <div id="circleG_1" class="circleG">
+            </div>
+            <div id="circleG_2" class="circleG">
+            </div>
+            <div id="circleG_3" class="circleG">
+            </div>
+        </div>
+    </div>
+    <!--对话框显示灰色背景-->
+    <div class="fullBg bgCommon none" style="z-index:100;"></div>
+    <!--俩层对话框灰色背景-->
+    <div class="twoFloorFullBg bgCommon none" style="z-index:1001"></div>
+    <!--保存|提交时-->
+    <!--<div class="none" id="fullBg1">
+        <div class="fullCon">
+            <img src="res/images/handing.gif" style="width: 110px;" /><br /><br />
+            &nbsp;&nbsp;处理中...
+        </div>
+    </div>-->
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="hgmsdk.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.touchSwipe.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        //阻塞Document.Ready方法执行，直到用户获取用户信息之后才执行（util.js中获取用户信息）
+        $.holdReady(true);
+    </script>
+    <script type="text/javascript" charset="utf-8" src="js/base64.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/fastclick.js"></script>
+
+
+    <script type="text/javascript" charset="utf-8" src="js/modules/dataStructure.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/modules/util.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/modules/photoSlidePreview.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/modules/checklist.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/modules/entryMesg.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/modules/unstuffing.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/modules/attachedDoc.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/modules/bussinessRegisteBriefingTable.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/modules/messages.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/modules/records.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/modules/containers.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/modules/goods.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/modules/checkwork.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/modules/sencePhoto.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/modules/dialog.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        //所有页面绑定事件调用
+        var Back = function () {
+            //var length = $(".page").hasClass("none");
+            var firstFlag = false;
+            var secondFlag = true;
+            $(".page").each(function () {
+                if ($(this).attr("id") == "checkworkPage" && !$(this).hasClass("none")) {
+                    firstFlag = true;
+                } else if (!$(this).hasClass("none")) {
+                    secondFlag = false;
+                }
+            });
+            if (!$("#checkListPage").hasClass("none")) {
+                HGBackUtil.finish();
+            } else if (firstFlag && secondFlag) {
+                exitCurrentCheck();
+            } else {
+                history.back();
+            }
+        };
+        //退出本次查验
+        var exitCurrentCheck = function () {
+            var option = {};
+            option.txt = "是否确认退出本次查验？";
+            var _processState = checkList.getCheckItem()["ProcessState"];
+            //var EntryID = checkList.getCheckItem()["EntryID"];
+            //alert(_processState + "," + EntryID);
+            if (_processState == "16") {
+                history.back();
+            } else {
+                dialog.showDialog12(option, "退出本次查验");
+            }
+        }
+        var eventInitialize = function () {
+            HGRegisterBack.callBackMethod();
+            Dictionary.init();
+            checkList.eventInitialize();
+            checkwork.eventInitialize();
+            entryMesg.eventInitialize();
+            unstuffing.eventInitialize();
+            attachedDoc.eventInitialize();
+            bussinessRegisteBriefingTable.eventInitialize();
+            sencePhoto.eventInitialize();
+            photoPreview.eventInitialize();
+            goods.eventInitialize();
+            dialog.eventInitialize();
+        }
+        $(document).ready(function () {
+            eventInitialize();
+            checkList.loadFisrtPage();
+            //调用fastclick
+            FastClick.attach(document.body);
+        });
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        if (ServerConfig.debug) {
+            util.getUserInfo.init();
+        }
+        function onDeviceReady() {
+            util.getUserInfo.init();
+        }
+        var debug = false;
+    </script>
+</body>
+</html>

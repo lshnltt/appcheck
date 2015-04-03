@@ -1,0 +1,401 @@
+﻿/*共用的字体颜色*/
+.fc3d {
+    color: #3d3d3d;
+}
+
+.fc1d {
+    color: #1d1d1d;
+}
+
+.fcblack {
+    color: #000;
+}
+
+.fcwhite {
+    color: #fff;
+}
+
+.fc01 {
+    color: #010101;
+}
+
+.fc2b {
+    color: #2b2b2b;
+}
+
+.fc7f {
+    color: #7f7f7f;
+}
+
+.fc84 {
+    color: #848484;
+}
+
+.fc41 {
+    color: #414141;
+}
+
+.fc34 {
+    color: #343434;
+}
+
+.fc70 {
+    color: #707070;
+}
+
+.fc7f {
+    color: #7f7f7f;
+}
+
+.fc1a476b {
+    color: #1a476b;
+}
+
+.fc777 {
+    color: #777;
+}
+
+.fc75 {
+    color: #757575;
+}
+
+.fc37 {
+    color: #373737;
+}
+
+.fc56 {
+    color: #566571;
+}
+
+.fc8c {
+    color: #8c8c8c;
+}
+
+.fc55 {
+    color: #c5544e;
+}
+
+.fc46 {
+    color: #464646;
+}
+
+.fcc5 {
+    color: #c5544e;
+}
+.fc24{
+    color: #249f18;
+}
+.fcd7{
+    color: #d73330;
+}
+.fcbe{
+    color:#bebebe;
+}
+.fc0c{
+    color:#0c83e8;
+}
+/*对话框共用样式*/
+.dialog {
+    position: fixed;
+}
+/*共用字体大小样式*/
+.f42 {
+    font-size: 42px;
+}
+
+.f30 {
+    font-size: 30px;
+}
+
+.f32 {
+    font-size: 32px;
+}
+
+.f38 {
+    font-size: 38px;
+}
+
+.f26 {
+    font-size: 26px;
+}
+
+.f34 {
+    font-size: 34px;
+}
+
+.f40 {
+    font-size: 40px;
+}
+
+.f47 {
+    font-size: 47px;
+}
+/*共用的背景颜色*/
+.bcf1 {
+    background-color: #f1f1f1;
+}
+
+.bcf2 {
+    background-color: #f2f2f2;
+}
+.bcf5{
+    background-color:#f5f5f5;
+}
+.bcea {
+    background-color: #eaeaea;
+}
+
+.bce5 {
+    background-color: #e5e5e7;
+}
+
+.bcwhite {
+    background-color: #fff;
+}
+
+.bcf4 {
+    background-color: #f4f4f4;
+}
+
+.bced {
+    background-color: #ededed;
+}
+/*按钮共用的样式*/
+
+/*共用的阴影样式*/
+.shadow_a6 {
+    box-shadow: inset 0 1px 0 #a6a6a6;
+}
+
+.shadow_72 {
+    box-shadow: 0 1px 0 #727272, inset 0 2px 0 #838383;
+}
+
+.shadow_white {
+    box-shadow: 0 2px 1px #fff, inset 0 1px 5px rgba(137,137,137,.78);
+}
+/*共用的背景图片*/
+.bImage_1 {
+    background-image: -webkit-linear-gradient(bottom, #336897, #427baf 54%, #4e8bc3);
+    background-color: #4e8bc3;
+}
+
+.bImage_2 {
+    background-image: -webkit-linear-gradient(bottom, #cdcdcd 0%, #efefef 64.7%, #f9f9f9 100%);
+}
+
+.bImage_3 {
+    background-image: -webkit-linear-gradient(bottom, #f2f2f2 0%, #fff 100%);
+}
+/*input元素共用的样式*/
+.inputCommon {
+    border: none;
+    outline:none;
+}
+/*遮罩层共用的样式*/
+#sendBg {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: transparent;
+    opacity: 0.25;
+    top: 52px;
+}
+
+#bg {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: #000;
+    opacity: 0.5;
+}
+/*文本阴影共用样式*/
+.tShadow_white1 {
+    text-shadow: 0 3px 2px #fff;
+}
+
+.tShadow_white2 {
+    text-shadow: 0 2px 2px #fff;
+}
+.tShadow_black1 {
+    text-shadow: 0 3px 2px #000;
+}
+.tShadow_black2 {
+    text-shadow: 0 2px 2px #000;
+}
+.userName {
+    min-width: 80px;
+    height: 58px;
+    margin-top: 21px;
+    line-height: 58px;
+    border-radius: 6px;
+    padding:0px 12px;
+}
+
+.refreshBtn {
+    width: 93px;
+    height: 68px;
+}
+/*横线共用样式*/
+.line1 {
+    background-image: url("../images/list_underline.png");
+    height: 4px;
+}
+
+.line2 {
+    background-image: url("../images/line2.png");
+    height: 4px;
+}
+.line3 {
+    border-bottom:1px solid #cfcfcf;
+}
+.linedashed {
+    border-bottom:1px dashed #bfbfbf;
+    margin:0px 60px;
+}
+/*共用行高样式*/
+.lh50 {
+    line-height: 50px;
+}
+
+.lh100 {
+    line-height: 100px;
+}
+/*flex共用样式*/
+.flex1 {
+    -webkit-box-flex: 1;
+}
+
+/*数据加载失败*/
+.loadFail {text-align:center;}
+.connectionIcon {width:137px;height:96px;}
+.connection1 {color:#4d4d4d;font-size:30px;margin-top:25px;}
+.connection2 {color:#adadad;font-size:20px;margin-top:13px;}
+.connectionBtn {width:129px;height:48px;line-height:48px;color:#F84343;border:1px solid #F84343;border-radius:12px;font-size:18px;margin:26px auto;}
+/*数据请求中的页面样式*/
+#fullBg,#fullBg1,.fullBg,.twoFloorFullBg{
+    width:100%;
+    height:100%;
+    position:fixed;
+    background-color:#555;
+    z-index:100;
+    top:0;
+    left:0;
+    opacity:0.5;/*其他，透明度50%*/
+}
+.fullBgBigPic{
+    width:100%;
+    height:100%;
+    position:fixed;
+    background-color:#555;
+    z-index:100;
+    top:0;
+    left:0;
+    opacity:1;/*其他，透明度50%*/
+}
+#fullBg{
+    background-color:#efefef;
+    opacity:0.4;
+}
+#fullBg1{
+    background-image: url("../images/px.png");
+    line-height:100%;
+}
+#fullBg1 .fullCon{
+    position:relative;
+    text-align:center;
+    top:48%;
+    font-size:28px;
+}
+#circleG{
+    width:160px;
+    z-index:99999;
+    left:50%;
+    bottom:50%;
+    margin-left:-80px;
+    position:absolute;
+}
+.circleG{
+    background-color:#FFFFFF;
+    float:left;
+    height:40px;
+    margin-left:13px;
+    width:40px;
+    -moz-animation-name:bounce_circleG;
+    -moz-animation-duration:1.2000000000000002s;
+    -moz-animation-iteration-count:infinite;
+    -moz-animation-direction:linear;
+    -moz-border-radius:17px;
+    -webkit-animation-name:bounce_circleG;
+    -webkit-animation-duration:1.2000000000000002s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-direction:linear;
+    -webkit-border-radius:17px;
+    -ms-animation-name:bounce_circleG;
+    -ms-animation-duration:1.2000000000000002s;
+    -ms-animation-iteration-count:infinite;
+    -ms-animation-direction:linear;
+    -ms-border-radius:17px;
+    -o-animation-name:bounce_circleG;
+    -o-animation-duration:1.2000000000000002s;
+    -o-animation-iteration-count:infinite;
+    -o-animation-direction:linear;
+    -o-border-radius:17px;
+    animation-name:bounce_circleG;
+    animation-duration:1.2000000000000002s;
+    animation-iteration-count:infinite;
+    animation-direction:linear;
+    border-radius:17px;
+}
+#circleG_1{
+    -moz-animation-delay:0.24000000000000005s;
+    -webkit-animation-delay:0.24000000000000005s;
+    -ms-animation-delay:0.24000000000000005s;
+    -o-animation-delay:0.24000000000000005s;
+    animation-delay:0.24000000000000005s;
+}
+#circleG_2{
+    -moz-animation-delay:0.56s;
+    -webkit-animation-delay:0.56s;
+    -ms-animation-delay:0.56s;
+    -o-animation-delay:0.56s;
+    animation-delay:0.56s;
+}
+#circleG_3{
+    -moz-animation-delay:0.72s;
+    -webkit-animation-delay:0.72s;
+    -ms-animation-delay:0.72s;
+    -o-animation-delay:0.72s;
+    animation-delay:0.72s;
+}
+@-moz-keyframes bounce_circleG{
+    0%{}
+    50%{background-color:#B4B2B4}
+    100%{}
+}
+@-webkit-keyframes bounce_circleG{
+    0%{}
+    50%{background-color:#B4B2B4}
+    100%{}
+}
+@-ms-keyframes bounce_circleG{
+    0%{}
+    50%{background-color:#B4B2B4}
+    100%{}
+}
+@-o-keyframes bounce_circleG{
+    0%{}
+    50%{background-color:#B4B2B4}
+    100%{}
+}
+@keyframes bounce_circleG{
+    0%{}
+    50%{background-color:#B4B2B4}
+    100%{}
+}
